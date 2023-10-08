@@ -20,3 +20,4 @@ xueqingScore = mu.score(xueqing)
 
 scoreDf = data.frame(oldScore, NLScore, LSScore, xueqingScore)
 print(cor(scoreDf))
+write.csv(scoreDf, file = 'result.csv')
