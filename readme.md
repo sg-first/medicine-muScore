@@ -1,7 +1,7 @@
 medicine-muScore
 ==========
 
-有显著性的变量
+有显著性的变量（基于线性模型）
 ------------
 ### NL
 ```
@@ -95,3 +95,174 @@ score        0.21041    0.08216   2.561   0.0138 *
 ```
 ![](NLLS.png)
 有相关性
+
+有显著性的变量（基于相关系数）
+---------
+### NL
+相关系数值：
+```
+               oldScore
+NL.CCL17   -0.079291411
+NL.CCL18   -0.086562711
+NL.CCL22    0.109278587
+NL.CCL27    0.006320145
+NL..IFN.γ. -0.041992165
+NL.IL13     0.191548290
+NL.IL18    -0.016398469
+NL.IL19    -0.045139547
+NL.IL31     0.050036618
+NL.IL33    -0.244847347
+NL.IL4      0.114566674
+NL.MMP12    0.033108402
+```
+显著性检验：
+```
+data:  oldScore and data$CCL17
+t = -0.53948, df = 46, p-value = 0.5922
+
+data:  oldScore and data$CCL18
+t = -0.58931, df = 46, p-value = 0.5585
+
+data:  oldScore and data$CCL22
+t = 0.74563, df = 46, p-value = 0.4597
+
+data:  oldScore and data$CCL27
+t = 0.042866, df = 46, p-value = 0.966
+
+data:  oldScore and data$`IFN-γ`
+t = -0.28506, df = 46, p-value = 0.7769
+
+data:  oldScore and data$IL13
+t = 1.3237, df = 46, p-value = 0.1922
+
+data:  oldScore and data$IL18
+t = -0.11123, df = 46, p-value = 0.9119
+
+data:  oldScore and data$IL19
+t = -0.30646, df = 46, p-value = 0.7606
+
+data:  oldScore and data$IL31
+t = 0.33979, df = 46, p-value = 0.7356
+
+data:  oldScore and data$IL33
+t = -1.7128, df = 46, p-value = 0.09349
+
+data:  oldScore and data$IL4
+t = 0.78218, df = 46, p-value = 0.4381
+
+data:  oldScore and data$MMP12
+t = 0.22468, df = 46, p-value = 0.8232
+```
+
+### LS
+相关系数值：
+```
+                 oldScore
+data.CCL17    0.039797106
+data.CCL18   -0.053143332
+data.CCL22    0.202109176
+data.CCL27    0.118341394
+data..IFN.γ.  0.291807130
+data.IL13    -0.082457924
+data.IL18     0.069993915
+data.IL19    -0.042943835
+data.IL31     0.003483419
+data.IL33     0.191968995
+data.IL4      0.088449836
+data.MMP12    0.156350250
+```
+显著性检验：
+```
+data:  oldScore and data$CCL17
+t = 0.27013, df = 46, p-value = 0.7883
+
+data:  oldScore and data$CCL18
+t = -0.36095, df = 46, p-value = 0.7198
+
+data:  oldScore and data$CCL22
+t = 1.3997, df = 46, p-value = 0.1683
+
+data:  oldScore and data$CCL27
+t = 0.80831, df = 46, p-value = 0.4231
+
+data:  oldScore and data$`IFN-γ` <<<<<<
+t = 2.0692, df = 46, p-value = 0.04417
+
+data:  oldScore and data$IL13
+t = -0.56117, df = 46, p-value = 0.5774
+
+data:  oldScore and data$IL18
+t = 0.47589, df = 46, p-value = 0.6364
+
+data:  oldScore and data$IL19
+t = -0.29153, df = 46, p-value = 0.772
+
+data:  oldScore and data$IL31
+t = 0.023626, df = 46, p-value = 0.9813
+
+data:  oldScore and data$IL33
+t = 1.3267, df = 46, p-value = 0.1912
+
+data:  oldScore and data$IL4
+t = 0.60226, df = 46, p-value = 0.55
+
+data:  oldScore and data$MMP12
+t = 1.0736, df = 46, p-value = 0.2886
+```
+
+### 血清
+相关系数值：
+```
+              oldScore
+data.CCL17   0.4893293
+data.CCL18   0.2782037
+data.CCL22   0.1589100
+data.CCL27   0.5038487
+data..IFN.γ. 0.5093419
+data.IL13    0.3744124
+data.IL18    0.4655896
+data.IL19    0.1454989
+data.IL31    0.1852483
+data.IL33    0.4838018
+data.IL4     0.4609382
+data.MMP12   0.3796799
+```
+
+显著性检验：
+```
+data:  oldScore and data$CCL17 <<<<<<
+t = 3.8055, df = 46, p-value = 0.0004163
+
+data:  oldScore and data$CCL18 <<<<<<
+t = 1.9644, df = 46, p-value = 0.05554
+
+data:  oldScore and data$CCL22
+t = 1.0917, df = 46, p-value = 0.2807
+
+data:  oldScore and data$CCL27 <<<<<<
+t = 3.9561, df = 46, p-value = 0.0002613
+
+data:  oldScore and data$`IFN-γ` <<<<<<
+t = 4.0143, df = 46, p-value = 0.0002179
+
+data:  oldScore and data$IL13 <<<<<<
+t = 2.7386, df = 46, p-value = 0.008748
+
+data:  oldScore and data$IL18 <<<<<<
+t = 3.5681, df = 46, p-value = 0.0008539
+
+data:  oldScore and data$IL19
+t = 0.99744, df = 46, p-value = 0.3238
+
+data:  oldScore and data$IL31
+t = 1.2785, df = 46, p-value = 0.2075
+
+data:  oldScore and data$IL33 <<<<<<
+t = 3.7493, df = 46, p-value = 0.0004944
+
+data:  oldScore and data$IL4 <<<<<<
+t = 3.5228, df = 46, p-value = 0.0009771
+
+data:  oldScore and data$MMP12 <<<<<<
+t = 2.7836, df = 46, p-value = 0.007776
+```
