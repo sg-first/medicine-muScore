@@ -2,7 +2,7 @@ import copy
 import pandas as pd
 import statsmodels.formula.api as smf
 from factor_analyzer import FactorAnalyzer
-import seaborn as sns
+import matplotlib.pyplot as plt
 
 oldScore = pd.read_excel('baseline_combination.xlsx', sheet_name='评分信息')['Score']
 NL = pd.read_excel('baseline_combination.xlsx', sheet_name='NL')
@@ -23,7 +23,7 @@ addCol(LS, 'LS')
 addCol(xueqing, '血清')
 
 def getTitle(colList:list):
-    title = 'oldScore~'
+    title = ''
     for c in colList:
         title += c.name + '+'
     return title[:-1]
@@ -60,12 +60,28 @@ def getFormula(columns):
     return ret[:-1]
 
 def drawPlot(model, olsData):
-    par = model.params
-    ax = olsData.plot(kind='scatter', x=olsData.columns[1], y=olsData.columns[0])
-    x = olsData['muScore']
-    print(x)
-    ax.plot(x, par.const + par.Xvalue * x)
-    sns.lmplot(x=olsData.columns[1], y=olsData.columns[0], data=olsData)
+    olsData = olsData.sort_values('muScore')
+    coef = model.params
+    conf_int = model.conf_int()
+    plt.scatter(olsData['muScore'], olsData['oldScore'], label='Data')
+    plt.plot(olsData['muScore'], coef[0] + coef[1] * olsData['muScore'], color='red', label='Regression Line')
+
+    def getConfidenceInterval():
+        lower = conf_int[0]['Intercept'] + conf_int[0]['muScore'] * olsData['muScore']
+        upper = conf_int[1]['Intercept'] + conf_int[1]['muScore'] * olsData['muScore']
+        for i in range(len(lower)):
+            if lower[i] > upper[i]:
+                lower[i], upper[i] = upper[i], lower[i]
+        return lower, upper
+
+    lowerInt, upperInt = getConfidenceInterval()
+    plt.fill_between(olsData['muScore'], lowerInt,
+                                        upperInt, color='gray',
+                     alpha=0.3, label='Confidence Interval')
+    plt.legend()
+    plt.xlabel('muScore')
+    plt.ylabel('oldScore')
+    plt.show()
 
 def regressiveAnalysis(colList:list):
     title = getTitle(colList)
@@ -73,11 +89,13 @@ def regressiveAnalysis(colList:list):
     print('```')
     data = getData(colList)
     muScores = calcMuScore(data)
+    print(muScores)
     olsData = getOlsData(muScores)
     model = smf.ols(getFormula(olsData.columns), olsData).fit()
     print(model.summary())
     print('```')
     drawPlot(model, olsData)
+    print('![](' + title + '.png)')
 
 regressiveAnalysis(allCol)
 
