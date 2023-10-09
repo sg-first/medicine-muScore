@@ -1,101 +1,6 @@
 medicine-muScore
 ==========
 
-有显著性的变量（基于线性模型）
-------------
-### NL
-```
-            Estimate Std. Error t value Pr(>|t|)   
-(Intercept)  14.5448     9.7958   1.485  0.14655   
-NL$CCL17     -0.6188     0.7658  -0.808  0.42447   
-NL$CCL18      0.3174     0.8565   0.371  0.71314   
-NL$CCL22      0.8744     0.5335   1.639  0.11014   
-NL$CCL27      0.2710     0.5563   0.487  0.62919   
-NL$`IFN-γ`    0.1589     0.4417   0.360  0.72129   
-NL$IL13       1.1829     0.5194   2.278  0.02897 * 
-NL$IL18      -0.4725     0.6077  -0.778  0.44205   
-NL$IL19      -0.3951     0.8423  -0.469  0.64193   
-NL$IL31       0.3407     0.4809   0.708  0.48342   
-NL$IL33      -1.6340     0.5915  -2.762  0.00908 **
-NL$IL4        0.2754     0.4090   0.673  0.50520   
-NL$MMP12     -0.6256     0.7289  -0.858  0.39660   
-```
-选`NL$IL13`、`NL$IL33`
-
-### LS
-```
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)  
-(Intercept) 32.66294   13.44491   2.429   0.0204 *
-LS$CCL17    -0.61665    1.04816  -0.588   0.5601  
-LS$CCL18    -0.06943    0.85339  -0.081   0.9356  
-LS$CCL22     1.52887    0.89165   1.715   0.0953 .
-LS$CCL27     0.29908    0.59554   0.502   0.6187  
-LS$`IFN-γ`   1.08841    0.52512   2.073   0.0456 *
-LS$IL13     -0.70085    0.61946  -1.131   0.2656  
-LS$IL18     -0.26468    0.87713  -0.302   0.7646  
-LS$IL19      0.15354    0.58645   0.262   0.7950  
-LS$IL31     -0.14748    0.55427  -0.266   0.7917  
-LS$IL33      0.29774    0.59514   0.500   0.6200  
-LS$IL4       0.58940    0.49842   1.183   0.2450  
-LS$MMP12    -0.53630    1.10482  -0.485   0.6304  
-```
-选`LS$CCL22`、`LS$IFN-γ`
-
-### 血清
-```
-Coefficients:
-                 Estimate Std. Error t value Pr(>|t|)
-(Intercept)     -142.4356   158.7045  -0.897    0.376
-xueqing$CCL17      1.2658     1.2262   1.032    0.309
-xueqing$CCL18      5.7255     4.2457   1.349    0.186
-xueqing$CCL22     -1.9918     1.9416  -1.026    0.312
-xueqing$CCL27     -0.8906     7.2759  -0.122    0.903
-xueqing$`IFN-γ`   13.0398    10.8767   1.199    0.239
-xueqing$IL13      -4.8670     9.6505  -0.504    0.617
-xueqing$IL18       3.7538     2.6243   1.430    0.161
-xueqing$IL19      -1.0227     9.4906  -0.108    0.915
-xueqing$IL31       1.9330     1.5473   1.249    0.220
-xueqing$IL33       0.1061    10.9903   0.010    0.992
-xueqing$IL4        6.2101     8.1755   0.760    0.453
-xueqing$MMP12     -0.6502    21.8782  -0.030    0.976
-```
-全不选
-
-mu-score回归分析（NL、LS分开）
------------
-
-### NL
-```
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 16.03958    1.44714  11.084  1.4e-14 ***
-NLScore      0.02931    0.05680   0.516    0.608    
-```
-![](NL.png)
-无相关性
-
-### LS
-```
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 16.03958    1.35324  11.853  1.4e-15 ***
-LSScore      0.16522    0.06285   2.629   0.0116 *  
-```
-![](LS.png)
-有相关性
-
-mu-score回归分析（NL、LS合并）
----------
-```
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 16.03958    1.35776  11.813 1.57e-15 ***
-score        0.21041    0.08216   2.561   0.0138 *  
-```
-![](NLLS.png)
-有相关性
-
 有显著性的变量（基于相关系数）
 ---------
 ### NL
@@ -145,7 +50,7 @@ data:  oldScore and data$IL31
 t = 0.33979, df = 46, p-value = 0.7356
 
 data:  oldScore and data$IL33
-t = -1.7128, df = 46, p-value = 0.09349
+t = -1.7128, df = 46, p-value = 0.09349 <<<<<<
 
 data:  oldScore and data$IL4
 t = 0.78218, df = 46, p-value = 0.4381
@@ -153,6 +58,7 @@ t = 0.78218, df = 46, p-value = 0.4381
 data:  oldScore and data$MMP12
 t = 0.22468, df = 46, p-value = 0.8232
 ```
+选`NL$IL33`
 
 ### LS
 相关系数值：
@@ -209,6 +115,7 @@ t = 0.60226, df = 46, p-value = 0.55
 data:  oldScore and data$MMP12
 t = 1.0736, df = 46, p-value = 0.2886
 ```
+选`LS$IFN-γ`
 
 ### 血清
 相关系数值：
@@ -266,3 +173,107 @@ t = 3.5228, df = 46, p-value = 0.0009771
 data:  oldScore and data$MMP12 <<<<<<
 t = 2.7836, df = 46, p-value = 0.007776
 ```
+选`xueqing$CCL17`、`xueqing$CCL18`、`xueqing$CCL27`、`xueqing$IFN-γ`、`xueqing$IL13`、`xueqing$IL18`、`xueqing$IL33`、`xueqing$IL4`、`xueqing$MMP12`
+
+回归分析
+------------
+### NL
+```
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept)   7.8960     4.9585   1.592   0.1181  
+NL$IL33      -0.6511     0.3802  -1.713   0.0935 .
+```
+
+### LS
+```
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  24.7880     4.4500   5.570 1.27e-06 ***
+LS$`IFN-γ`    0.7237     0.3498   2.069   0.0442 *  
+```
+
+### 血清
+```
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)
+(Intercept)     -125.2802   142.6316  -0.878    0.385
+xueqing$CCL17      1.5863     1.2108   1.310    0.198
+xueqing$CCL18      6.7904     4.1247   1.646    0.108
+xueqing$CCL27     -0.5584     6.7583  -0.083    0.935
+xueqing$`IFN-γ`   12.0753    10.5013   1.150    0.257
+xueqing$IL13      -2.3530     9.2835  -0.253    0.801
+xueqing$IL18       3.8981     2.5320   1.540    0.132
+xueqing$IL33      -5.1215    10.2538  -0.499    0.620
+xueqing$IL4        6.0152     8.0063   0.751    0.457
+xueqing$MMP12     -9.1105    20.8615  -0.437    0.665
+```
+
+mu-score回归分析（全部分开）
+-----------
+### NL
+```
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 16.03958    1.38828  11.554 3.39e-15 ***
+LSScore      0.10693    0.05173   2.067   0.0444 *  
+```
+![](NL.png)
+
+### LS
+```
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 16.03958    1.40944  11.380  5.7e-15 ***
+NLScore     -0.10552    0.06335  -1.666    0.103   
+```
+![](LS.png)
+无相关性
+
+### 血清
+```
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   16.0396     1.2092  13.265  < 2e-16 ***
+xueqingScore   0.4983     0.1107   4.502 4.57e-05 ***
+```
+![](xueqing.png)
+
+mu-score回归分析（合并）
+---------
+### NL+LS
+```
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 16.03958    1.44289  11.116 1.26e-14 ***
+score        0.04190    0.05704   0.735    0.466  
+```
+![](NL+LS.png)
+无相关性
+
+### NL+血清
+```
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  16.0396     1.2625  12.704  < 2e-16 ***
+score         0.6178     0.1607   3.845 0.000368 ***
+```
+![](NL+xueqing.png)
+
+### LS+血清
+```
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  16.0396     1.1833  13.555  < 2e-16 ***
+score         0.6939     0.1441   4.816 1.62e-05 ***
+```
+![](LS+xueqing.png)
+
+### NL+LS+血清
+```
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  16.0396     1.2443  12.891  < 2e-16 ***
+score         0.8109     0.1991   4.072 0.000182 ***
+```
+![](NL+LS+xueqing.png)
