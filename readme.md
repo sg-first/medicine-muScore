@@ -241,29 +241,59 @@ mu-score回归分析（全部分开）
 -----------
 ### NL
 ```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-13.317  -7.942  -2.017   5.333  26.983 
+
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 16.03958    1.38828  11.554 3.39e-15 ***
-LSScore      0.10693    0.05173   2.067   0.0444 *  
+(Intercept) 16.03958    1.40944  11.380  5.7e-15 ***
+NLScore     -0.10552    0.06335  -1.666    0.103    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9.765 on 46 degrees of freedom
+Multiple R-squared:  0.05688,	Adjusted R-squared:  0.03638 
+F-statistic: 2.774 on 1 and 46 DF,  p-value: 0.1026
 ```
 ![](NL.png)
 
 ### LS
 ```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-20.151  -7.664  -2.344   4.563  27.712 
+
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)    
-(Intercept) 16.03958    1.40944  11.380  5.7e-15 ***
-NLScore     -0.10552    0.06335  -1.666    0.103   
+(Intercept) 16.03958    1.38828  11.554 3.39e-15 ***
+LSScore      0.10693    0.05173   2.067   0.0444 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9.618 on 46 degrees of freedom
+Multiple R-squared:  0.08498,	Adjusted R-squared:  0.06509 
+F-statistic: 4.272 on 1 and 46 DF,  p-value: 0.04439
 ```
 ![](LS.png)
 无相关性
 
 ### 血清
 ```
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.6239  -6.2527  -0.5018   5.8402  20.6517 
+
 Coefficients:
              Estimate Std. Error t value Pr(>|t|)    
 (Intercept)   16.0396     1.2092  13.265  < 2e-16 ***
 xueqingScore   0.4983     0.1107   4.502 4.57e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 8.377 on 46 degrees of freedom
+Multiple R-squared:  0.3059,	Adjusted R-squared:  0.2908 
+F-statistic: 20.27 on 1 and 46 DF,  p-value: 4.571e-05
 ```
 ![](xueqing.png)
 
@@ -271,37 +301,77 @@ mu-score回归分析（合并）
 ---------
 ### NL+LS
 ```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-17.225  -7.440  -1.783   6.353  28.502 
+
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)    
 (Intercept) 16.03958    1.44289  11.116 1.26e-14 ***
-score        0.04190    0.05704   0.735    0.466  
+score        0.04190    0.05704   0.735    0.466    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9.997 on 46 degrees of freedom
+Multiple R-squared:  0.01159,	Adjusted R-squared:  -0.009894 
+F-statistic: 0.5396 on 1 and 46 DF,  p-value: 0.4663
 ```
 ![](NL+LS.png)
 无相关性
 
 ### NL+血清
 ```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-15.957  -6.726  -1.472   6.944  21.867 
+
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)    
 (Intercept)  16.0396     1.2625  12.704  < 2e-16 ***
 score         0.6178     0.1607   3.845 0.000368 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 8.747 on 46 degrees of freedom
+Multiple R-squared:  0.2433,	Adjusted R-squared:  0.2268 
+F-statistic: 14.79 on 1 and 46 DF,  p-value: 0.0003683
 ```
 ![](NL+xueqing.png)
 
 ### LS+血清
 ```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-16.034  -5.711  -1.521   6.842  21.630 
+
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)    
 (Intercept)  16.0396     1.1833  13.555  < 2e-16 ***
 score         0.6939     0.1441   4.816 1.62e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 8.198 on 46 degrees of freedom
+Multiple R-squared:  0.3352,	Adjusted R-squared:  0.3208 
+F-statistic:  23.2 on 1 and 46 DF,  p-value: 1.623e-05
 ```
 ![](LS+xueqing.png)
 
 ### NL+LS+血清
 ```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-16.151  -6.184  -1.667   6.610  23.026 
+
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)    
 (Intercept)  16.0396     1.2443  12.891  < 2e-16 ***
 score         0.8109     0.1991   4.072 0.000182 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 8.621 on 46 degrees of freedom
+Multiple R-squared:  0.2649,	Adjusted R-squared:  0.249 
+F-statistic: 16.58 on 1 and 46 DF,  p-value: 0.0001818
 ```
 ![](NL+LS+xueqing.png)
