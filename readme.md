@@ -179,22 +179,46 @@ t = 2.7836, df = 46, p-value = 0.007776
 ------------
 ### NL
 ```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-13.252  -7.877  -1.952   5.399  27.049 
+
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)  
 (Intercept)   7.8960     4.9585   1.592   0.1181  
 NL$IL33      -0.6511     0.3802  -1.713   0.0935 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9.749 on 46 degrees of freedom
+Multiple R-squared:  0.05995,	Adjusted R-squared:  0.03951 
+F-statistic: 2.934 on 1 and 46 DF,  p-value: 0.09349
 ```
 
 ### LS
 ```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-21.447  -7.384  -1.717   4.800  27.997 
+
 Coefficients:
             Estimate Std. Error t value Pr(>|t|)    
 (Intercept)  24.7880     4.4500   5.570 1.27e-06 ***
 LS$`IFN-γ`    0.7237     0.3498   2.069   0.0442 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9.617 on 46 degrees of freedom
+Multiple R-squared:  0.08515,	Adjusted R-squared:  0.06526 
+F-statistic: 4.282 on 1 and 46 DF,  p-value: 0.04417
 ```
 
 ### 血清
 ```
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.1141  -5.3498  -0.7507   6.4386  20.8182 
+
 Coefficients:
                  Estimate Std. Error t value Pr(>|t|)
 (Intercept)     -125.2802   142.6316  -0.878    0.385
@@ -207,6 +231,10 @@ xueqing$IL18       3.8981     2.5320   1.540    0.132
 xueqing$IL33      -5.1215    10.2538  -0.499    0.620
 xueqing$IL4        6.0152     8.0063   0.751    0.457
 xueqing$MMP12     -9.1105    20.8615  -0.437    0.665
+
+Residual standard error: 8.372 on 38 degrees of freedom
+Multiple R-squared:  0.4273,	Adjusted R-squared:  0.2917 
+F-statistic:  3.15 on 9 and 38 DF,  p-value: 0.0062
 ```
 
 mu-score回归分析（全部分开）
